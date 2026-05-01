@@ -9,13 +9,15 @@ public class KthLargest {
         for (int i = 0; i < arr.length; i++) {
             minHeap.add(arr[i]);
 
-            if (minHeap.size() < k) {
-                result.add(-1);
-                continue;
-            } else if (minHeap.size() > k){
+            if (minHeap.size() > k) {
                 minHeap.poll();
             }
-            result.add(minHeap.peek());
+
+            if (minHeap.size() < k) {
+                result.add(-1);
+            } else {
+                result.add(minHeap.peek());
+            }
         }
         
         return result;
