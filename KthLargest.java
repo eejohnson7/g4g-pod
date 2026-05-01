@@ -11,12 +11,11 @@ public class KthLargest {
 
             if (minHeap.size() < k) {
                 result.add(-1);
+                continue;
             } else if (minHeap.size() > k){
                 minHeap.poll();
-                result.add(minHeap.peek());
-            } else {
-                result.add(minHeap.peek());
             }
+            result.add(minHeap.peek());
         }
         
         return result;
